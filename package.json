@@ -17,12 +17,14 @@
     },
     "dependencies": {
         "botbuilder": "~4.5.1",
+        "botbuilder-dialogs": "^4.6.2",
         "dotenv": "~8.0.0",
+        "magento2-rest-client": "github:DivanteLtd/magento2-rest-client",
         "restify": "~8.3.3"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.3",
-        "eslint": "^6.1.0",
+        "eslint": "^5.16.0",
         "eslint-config-airbnb": "^18.0.1",
         "eslint-config-prettier": "6.4.0",
         "eslint-config-standard": "^13.0.1",
