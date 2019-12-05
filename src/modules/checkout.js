@@ -82,10 +82,10 @@ Checkout.setPaymentAndOrder = async (
   ); */
 
   // if (!result.code) {
-    await turnContext.sendActivity(`Order nº 78`);
-    await turnContext.sendActivity(
-      `You can check the order status in http://tfm.rubenr.es/`
-    );
+  await turnContext.sendActivity(`Order nº 78`);
+  await turnContext.sendActivity(
+    `You can check the order status in http://tfm.rubenr.es/`
+  );
   /* } else {
     await turnContext.sendActivity(`Error: ${result.message}`);
   } */

@@ -1,5 +1,5 @@
 const { ActivityTypes } = require("botbuilder");
-const { storeConfig } = require("./config/data.json");
+const { storeConfig } = require("../config/data.json");
 
 const Product = {};
 

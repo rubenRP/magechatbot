@@ -2,10 +2,10 @@
 const { ActivityHandler, MessageFactory } = require("botbuilder");
 const { Magento2Client } = require("magento2-rest-client");
 
-const { BasicMessages } = require("./basicMessages");
-const { Product } = require("./product");
-const { Cart } = require("./cart");
-const { Checkout } = require("./checkout");
+const { BasicMessages } = require("./modules/basicMessages");
+const { Product } = require("./modules/product");
+const { Cart } = require("./modules/cart");
+const { Checkout } = require("./modules/checkout");
 const { apiConfigLocal } = require("./config/data.json");
 
 const { ShippingDialog } = require("./dialogs/shippingDialog");

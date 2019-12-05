@@ -1,0 +1,15 @@
+{
+  "apiConfig": {
+    "url": "http://magentoshop.com/rest",
+    "consumerKey": "aaa",
+    "consumerSecret": "bbb",
+    "accessToken": "ccc",
+    "accessTokenSecret": "ddd"
+  },
+  "storeConfig": {
+    "url": "http://.magentoshop.com/",
+    "mediaProductUrl": "http://magentoshop.com/pub/media/catalog/product"
+  },
+  "options": {
+  }
+}

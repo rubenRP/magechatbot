@@ -18,8 +18,5 @@
     "mediaProductUrl": "http://local.magento23.com/pub/media/catalog/product"
   },
   "options": {
-    "search": "Search",
-    "catalog": "Catalog",
-    "pay": "Pay"
   }
 }
