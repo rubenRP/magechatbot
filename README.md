@@ -13,6 +13,27 @@ This bot has been created using [Bot Framework](https://dev.botframework.com) an
   node --version
   ```
 
+## Config
+
+Is necessary to create a src/config/data.json file and fill the API Credentials for Magento 2. You can check the data.json.example as follows:
+
+```json
+{
+  "apiConfig": {
+    "url": "http://magentoshop.com/rest",
+    "consumerKey": "aaa",
+    "consumerSecret": "bbb",
+    "accessToken": "ccc",
+    "accessTokenSecret": "ddd"
+  },
+  "storeConfig": {
+    "url": "http://.magentoshop.com/",
+    "mediaProductUrl": "http://magentoshop.com/pub/media/catalog/product"
+  },
+  "options": {}
+}
+```
+
 ## To run the bot
 
 - Install modules
