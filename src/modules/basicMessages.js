@@ -26,16 +26,16 @@ BasicMessages.sendSuggestedActions = async turnContext => {
 
 BasicMessages.printHelpInfo = async turnContext => {
   await turnContext.sendActivity(
-    "MageBot is a chatbot that allows you to interact with a magento store using a conversational way."
+    "MageBot is a chatbot that allows you to interact with a Magento 2 store using a conversational way."
   );
   await turnContext.sendActivity(
     "You can search products, add to cart and buy your products."
   );
   await turnContext.sendActivity(
-    "Also, if you are registered in the Magento store, you can log in, add to cart, and save the session."
+    "Always you can type 'Help' or '/Help' to show help options. Also, you can restart the chatbot with '/restart' command."
   );
   await turnContext.sendActivity(
-    "Always you can type 'Help' to show help options"
+    "If you want more info about this app you can check https://github.com/rubenRP/magechatbot"
   );
 };
 

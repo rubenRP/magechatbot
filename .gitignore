@@ -2,3 +2,5 @@ node_modules
 lib
 .env
 src/config/data.json
+code.zip
+web.config

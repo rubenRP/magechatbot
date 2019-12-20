@@ -4,12 +4,12 @@ const { storeConfig } = require("../config/data.json");
 const Product = {};
 
 Product.searchProduct = async (client, query) => {
-  const test =
+  const searchCriteria =
     `${"&searchCriteria[filter_groups][0][filters][0][field]=name&" +
       "searchCriteria[filter_groups][0][filters][0][value]=%25"}${query}%25&` +
     `searchCriteria[filter_groups][0][filters][0][condition_type]=like&` +
     `searchCriteria[pageSize]=10`;
-  const result = await client.products.list(test);
+  const result = await client.products.list(searchCriteria);
 
   if (result.code) {
     console.log("Result");

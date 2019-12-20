@@ -6,14 +6,14 @@ const { BasicMessages } = require("./modules/basicMessages");
 const { Product } = require("./modules/product");
 const { Cart } = require("./modules/cart");
 const { Checkout } = require("./modules/checkout");
-const { apiConfigLocal } = require("./config/data.json");
+const { apiConfig } = require("./config/data.json");
 
 const { ShippingDialog } = require("./dialogs/shippingDialog");
 
 // The accessor names for the conversation data and user profile state property accessors.
 const CONVERSATION_DATA_PROPERTY = "conversationData";
 const USER_PROFILE_PROPERTY = "userProfile";
-const client = Magento2Client(apiConfigLocal);
+const client = Magento2Client(apiConfig);
 
 class MageChatbot extends ActivityHandler {
   constructor(conversationState, userState) {
@@ -56,7 +56,10 @@ class MageChatbot extends ActivityHandler {
 
       console.log(`User text: ${turnContext.activity.text}`);
 
-      if (turnContext.activity.text === "Help") {
+      if (
+        turnContext.activity.text.toLowerCase() === "help" ||
+        turnContext.activity.text.toLowerCase() === "/help"
+      ) {
         await BasicMessages.printHelpInfo(turnContext);
         conversationData.botState = -1;
       }
@@ -66,9 +69,15 @@ class MageChatbot extends ActivityHandler {
         // Help switch case
         case 10:
           console.log("Case 10 HELP");
-          if (turnContext.activity.text === "Search") {
+          if (
+            turnContext.activity.text.toLowerCase() === "search" ||
+            turnContext.activity.text.toLowerCase() === "/search"
+          ) {
             conversationData.botState = 1;
-          } else if (turnContext.activity.text === "Restart") {
+          } else if (
+            turnContext.activity.text.toLowerCase() === "restart" ||
+            turnContext.activity.text.toLowerCase() === "/restart"
+          ) {
             userProfile.customerToken = null;
             userProfile.customerId = null;
             userProfile.cartId = null;
@@ -97,7 +106,10 @@ class MageChatbot extends ActivityHandler {
         // Cart case to checkout or
         case 12:
           console.log("Case 12");
-          if (turnContext.activity.text === "Checkout") {
+          if (
+            turnContext.activity.text.toLowerCase() === "checkout" ||
+            turnContext.activity.text.toLowerCase() === "/checkout"
+          ) {
             conversationData.botState = 5;
           } else {
             conversationData.botState = -1;
@@ -123,7 +135,7 @@ class MageChatbot extends ActivityHandler {
             client,
             userProfile.productQuery
           );
-          if (products) {
+          if (products.items.length) {
             // console.log(Object.values(products.items)[0]);
             userProfile.productItems = products.items;
             userProfile.productObject = userProfile.productItems.shift();
