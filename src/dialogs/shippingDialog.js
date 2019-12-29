@@ -47,8 +47,6 @@ class ShippingDialog extends ComponentDialog {
         this.streetStep.bind(this),
         this.postcodeStep.bind(this),
         this.cityStep.bind(this),
-        this.regionStep.bind(this),
-        this.countryStep.bind(this),
         this.confirmStep.bind(this)
       ])
     );
@@ -105,18 +103,8 @@ class ShippingDialog extends ComponentDialog {
     return await step.prompt(CITY_PROMPT, "City:");
   }
 
-  async regionStep(step) {
-    step.values.city = step.result;
-    return await step.prompt(REGION_PROMPT, "Region:");
-  }
-
-  async countryStep(step) {
-    step.values.region = step.result;
-    return await step.prompt(REGION_PROMPT, "Country code:");
-  }
-
   async confirmStep(step) {
-    step.values.country = step.result;
+    step.values.city = step.result;
     return await step.endDialog(step.values);
   }
 }

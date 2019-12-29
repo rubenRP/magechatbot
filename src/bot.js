@@ -15,6 +15,12 @@ const CONVERSATION_DATA_PROPERTY = "conversationData";
 const USER_PROFILE_PROPERTY = "userProfile";
 const client = Magento2Client(apiConfig);
 
+/**
+ *
+ *
+ * @class MageChatbot
+ * @extends {ActivityHandler}
+ */
 class MageChatbot extends ActivityHandler {
   constructor(conversationState, userState) {
     super();
@@ -76,7 +82,8 @@ class MageChatbot extends ActivityHandler {
             conversationData.botState = 1;
           } else if (
             turnContext.activity.text.toLowerCase() === "restart" ||
-            turnContext.activity.text.toLowerCase() === "/restart"
+            turnContext.activity.text.toLowerCase() === "/restart" ||
+            turnContext.activity.text.toLowerCase() === "/start"
           ) {
             userProfile.customerToken = null;
             userProfile.customerId = null;
@@ -225,6 +232,13 @@ class MageChatbot extends ActivityHandler {
             this.sippingDialogState
           );
           if (response && response.status === "complete") {
+            await turnContext.sendActivity(
+              "We only ship to Spain with free shipping, so we have simplified the checkout steps"
+            );
+            await turnContext.sendActivity(
+              "The default payment method for this store is Check / MoneyOrder"
+            );
+
             userProfile.shippingInfo = response.result;
             response = await Checkout.setShippingInfo(
               client,
